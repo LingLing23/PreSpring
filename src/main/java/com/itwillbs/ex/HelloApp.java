@@ -69,6 +69,8 @@ public class HelloApp {
 		person.sayMyInfo();
 		
 		// 생성자 주입
+		Person person2 = fac.getBean("person2", Person.class);
+		person2.sayMyInfo();
 		
 		
 		
