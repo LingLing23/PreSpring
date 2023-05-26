@@ -50,14 +50,28 @@ public class HelloApp {
 		
 		
 		// 약한 결합 -> 의존성 주입을 통해 동작 구현
-		// 쇼핑몰 접속 (== XML 파일 접근)
+		// 쇼핑몰(== 쿠팡) 접속 (== XML 파일 접근)
 		BeanFactory fac = new XmlBeanFactory(new FileSystemResource("spring_bean.xml"));
 		// BeanFactory가 인터페이스이므로 XmlBeanFactory 클래스 생성으로 업캐스팅.
 		// 위의 코드를 통해 아까 만들어 놓은 XML파일에 접근 하는 것.
+		// xml파일에 접근해서 객체 가져오기(?)
 		
 		// 이제 원래라면 객체를 생성해서 코드를 실행하는데, 이제는 객체생성이 아닌 주입!
-		MSGBean msgBean2 = fac.getBean("msgBean",MSGBean.class);
+//		MSGBean msgBean2 = fac.getBean("msgBean",MSGBean.class);
+		MSGBean msgBean2 = (MSGBean)fac.getBean("msgBean");
 		msgBean2.sayMSG("의존 주입");
+
+
+		
+		// ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+		// setter 주입
+		Person person = fac.getBean("person", Person.class);
+		person.sayMyInfo();
+		
+		// 생성자 주입
+		
+		
+		
 		
 	}
 

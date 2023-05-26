@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN"
+        "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+        
+<beans>
+	<bean id="msgBean" class="com.itwillbs.ex.MsgBeanImpl" />
+	
+	<!-- PersonImpl 클래스 구현 객체 생성 -->
+	<bean id="person" class="com.itwillbs.ex.PersonImpl">
+		<property name="name" value="아이티윌"></property>	<!-- setName("아이티윌") -->
+	</bean>
+	
+</beans>
